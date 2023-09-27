@@ -1,0 +1,27 @@
+/*Stylesheet_ExpPlanner*/
+/*Software Engineering og Testing - Gruppe 6*/
+html {
+    font-family: 'Ubuntu', 'Arial', 'Times New Roman', sans-serif;
+}
+
+body {
+    font-weight: lighter;
+    height: 100%;
+    width: 100%;
+    background: #b2beb5;
+}
+
+.center-align {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.loginButton {
+    border: none;
+    border-radius: 8px;
+    background-color: #b2beb5;
+    padding: 5px 15px;
+    margin: 3%;
+    font-weight: bold;
+}
