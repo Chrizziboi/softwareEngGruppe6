@@ -1,0 +1,73 @@
+/*Stylesheet_ExpPlanner*/
+/*Software Engineering og Testing - Gruppe 6*/
+html {
+    font-family: 'Ubuntu', 'Arial', 'Times New Roman', sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background: #b2beb5;
+}
+
+.flex-container {
+    display: flex;
+
+}
+
+#title {
+    margin-top: 5px;
+    font-weight: lighter;
+}
+
+#middle {
+    width: 50%;
+    height: 100%;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+#sides {
+    width: 25%;
+}
+
+#mainText {
+    letter-spacing: 1px;
+    line-height: 25px;
+}
+
+.center-align {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.loginButton {
+    border: none;
+    border-radius: 8px;
+    background-color: #b2beb5;
+    padding: 5px 15px;
+    margin: 8px;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+.loginButton:hover {
+    transition: 0.3s;
+    background-color: #dbe1dd;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24);
+}
+
+#footer {
+    font-weight: 300;
+    font-size: 10px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+footer {
+    padding: 5px;
+}
