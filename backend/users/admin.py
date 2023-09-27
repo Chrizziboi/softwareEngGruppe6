@@ -1,4 +1,3 @@
-import pytest
 
 class admin:
     def __init__(self, adminid, adminname):
