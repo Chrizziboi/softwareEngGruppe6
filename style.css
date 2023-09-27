@@ -21,14 +21,14 @@ body {
 }
 
 #middle {
-    width: 50%;
+    width: 60;
     height: 100%;
     padding: 5px;
     background-color: #f9f9f9;
 }
 
 #sides {
-    width: 25%;
+    width: 100%;
 }
 
 #mainText {
@@ -43,12 +43,12 @@ body {
 }
 
 .loginButton {
+    font-family: 'Ubuntu', sans-serif;
     border: none;
     border-radius: 8px;
     background-color: #b2beb5;
     padding: 5px 15px;
     margin: 8px;
-    font-weight: bold;
     transition-duration: 0.3s;
 }
 
@@ -58,14 +58,21 @@ body {
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24);
 }
 
+.loginButton:active {
+    background-color: #c0cac2;
+    transition: 0.1s;
+}
+
 #footer {
+    font-family: 'Montserrat', 'Arial', 'Times New Roman', sans-serif;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 12px;
     background-color: #f9f9f9;
     margin-top: 10px;
     width: 100%;
     position: absolute;
     bottom: 0;
+    left: 0;
 }
 
 footer {
