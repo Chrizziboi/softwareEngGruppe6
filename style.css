@@ -5,10 +5,28 @@ html {
 }
 
 body {
-    font-weight: lighter;
     height: 100%;
     width: 100%;
     background: #b2beb5;
+}
+
+.flex-container {
+    display: flex;
+
+}
+
+#title {
+    margin-top: 2%;
+    font-weight: lighter;
+}
+
+#middle {
+    width: 50%;
+    background-color: #f9f9f9;
+}
+
+#sides {
+    width: 25%;
 }
 
 .center-align {
@@ -24,4 +42,5 @@ body {
     padding: 5px 15px;
     margin: 3%;
     font-weight: bold;
+
 }
