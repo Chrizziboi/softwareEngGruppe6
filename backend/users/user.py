@@ -11,16 +11,12 @@ class user:
     def get_user_info(self):
         return f"UserID: {self.userID}, Username: {self.username}."
 
-    def get_id(self):
-        return str(self.userID)
-
     def has_shopping_cart(self, shoppingCart):
         return shoppingCart is not None
 
     def user_login(self, login):
-        return True
-
-
-
-
-
+        login = True
+        if login == True:
+            print("Sucessfully logged in.")
+        else:
+            print("couldn't log in.")
