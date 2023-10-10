@@ -5,13 +5,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>ExpPlanner</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <body>
     <div class="flex-container">
-        <div class="center-align" id="sides">
+        <div id="sideLeft" class="center-align">
             <h4>placeholder</h4>
         </div>
         <div id="middle">
@@ -30,22 +30,11 @@
                 </button>
             </div>
             <div id="mainText"> <!--Eksempeltekst-->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat, ipsum in commodo rhoncus,
-                    ipsum arcu efficitur enim, a imperdiet ex tortor suscipit nunc. Phasellus massa ante,
-                    imperdiet et pharetra eget, facilisis id arcu. Integer elementum lorem et ante bibendum dapibus.
-                    Donec eget accumsan ex. Cras vel turpis metus. Sed consequat nec nisi non vulputate.
-                    Sed accumsan imperdiet sagittis. Fusce porta condimentum vulputate. Nunc volutpat,
-                    augue vitae sodales feugiat, nibh turpis posuere ante, at pulvinar risus quam at tellus.
-                    Nullam vel diam et tortor commodo egestas vel faucibus felis.
-                    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    Sed congue nunc vel dolor mattis aliquet. Praesent id arcu posuere, vehicula tellus ac,
-                    venenatis elit. Curabitur eget libero pretium, semper felis fermentum, posuere dolor.
-                    Donec id nisl magna.
-                    Curabitur nec odio in urna iaculis facilisis.
+                <p>
                 </p>
             </div>
         </div>
-        <div id="sides" class="center-align">
+        <div id="sideRight" class="center-align">
             <h4>placeholder</h4>
         </div>
     </div>
