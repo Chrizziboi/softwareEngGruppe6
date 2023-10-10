@@ -1,18 +1,14 @@
-
 import sqlite3
 
 from flask import Flask
 from backend.users.user import user
 from backend.users.admin import admin
 
-
 app = Flask(__name__)
-
 
 from flask import Flask, render_template
 
 DATABASE = 'chinook.db'
-
 
 app = Flask(__name__)
 
