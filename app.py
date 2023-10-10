@@ -1,6 +1,8 @@
 from flask import Flask
 #from backend.users.admin import admin
 from backend.users.user import user
+from backend.users.admin import admin
+
 
 app = Flask(__name__)
 
@@ -14,5 +16,8 @@ def hello_world():  # put application's code here
 if __name__ == '__main__':
     app.run()
 
-user1 = user(userID=int(1), username="bruker")
+user1 = user(userID=int(1), username="user")
 print(user.get_user_info(user1))
+
+admin1 = admin(adminID=int(1), adminname="admin")
+print(admin.get_admin_info(admin1))
