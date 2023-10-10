@@ -1,18 +1,20 @@
-from flask import Flask
-#from backend.users.admin import admin
-from backend.users.user import user
+import sqlite3
+
+from flask import Flask, render_template
+
+DATABASE = 'chinook.db'
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Welcome to Expedition Planner!'
-
-
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
-user1 = user(userID=int(1), username="bruker")
-print(user.get_user_info(user1))
+def get_db():
+    db = getattr(Flask, '_database', None)
+    if db is None:
+        db = Flask._database = sqlite3.connect(DATABASE)
+    return db
