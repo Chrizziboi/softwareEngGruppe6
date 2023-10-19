@@ -31,7 +31,8 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: lighter;
-    letter-spacing: 3px;
+    font-size: 40px;
+    letter-spacing: 2px;
 }
 
 #titleWrapper {
@@ -85,8 +86,10 @@ body {
 
 #mainText {
     letter-spacing: 1px;
+    font-size: 15px;
+    padding: 10px;
     line-height: 25px;
-    padding: 20px;
+    text-align: center;
 }
 
 .center-align {
