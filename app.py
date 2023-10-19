@@ -1,15 +1,11 @@
 import sqlite3
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for, session
 from backend.users.user import user
 from backend.users.admin import admin
 
 app = Flask(__name__)
 
-from flask import Flask, render_template
-
 DATABASE = 'chinook.db'
-
-app = Flask(__name__)
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -20,24 +16,6 @@ def get_db():
         db = Flask._database = sqlite3.connect(DATABASE)
     return db
 
-def create_table():
-    conn = get_db()
-    conn.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)')
-
-def register_user(username, password):
-    conn = get_db()
-    conn.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
-    conn.commit()
-    conn.close()
-
-def login(username, password):
-    conn = get_db()
-    cursor = conn.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
-    user = cursor.fetchone()
-    conn.close()
-    return user
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -46,8 +24,7 @@ def index():
 def login():
     if request.method == 'POST':
         username = request.form['username']
-        password = request.form['password']
-        user = login(username, password)
+        user = login(username)
         if user:
             session['user'] = user['username']
             return f"Login Successful!\n Welcome {username}!, to a new expedition! <a href='/logout'>Logout</a>".format(user['username'])
@@ -65,4 +42,3 @@ print(user.get_user_info(user1))
 
 admin1 = admin(adminID=int(1), adminname="admin", login=True)
 print(admin.get_admin_info(admin1))
-
