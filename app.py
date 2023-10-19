@@ -34,9 +34,9 @@ def get_db():
         db = Flask._database = sqlite3.connect(DATABASE)
     return db
 
-user1 = user(userID=int(1), username="user", login=True)
+user1 = user(userID=int(1), username="user")
 print(user.get_user_info(user1))
 
-admin1 = admin(adminID=int(1), adminname="admin", login=True)
+admin1 = admin(adminID=int(1), adminname="admin")
 print(admin.get_admin_info(admin1))
 
