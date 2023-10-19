@@ -5,7 +5,21 @@ from backend.users.admin import admin
 
 app = Flask(__name__)
 
+
+
+
+
+from flask import Flask, render_template
+
 DATABASE = 'chinook.db'
+
+def user_login():
+    pass
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
