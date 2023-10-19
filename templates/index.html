@@ -22,12 +22,12 @@
             </div>
             <div id="buttonWrapper" class="center-align">
                 <p>Logg inn:</p>
-                <a href="user-page.html">
+                <a href="{{ url_for('userpage') }}">
                    <button class="loginButton">
                        Bruker
                    </button>
                 </a>
-                <a>
+                <a href="{{ url_for('adminpage') }}">
                     <button class="loginButton">
                         Admin
                     </button>
