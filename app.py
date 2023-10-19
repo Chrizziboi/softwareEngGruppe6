@@ -17,6 +17,14 @@ def user_login():
 def index():
     return render_template('index.html')
 
+@app.route('/user-page')
+def userpage():
+    return render_template('user-page.html')
+
+@app.route('/admin-page')
+def adminpage():
+    return render_template('admin-page.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
