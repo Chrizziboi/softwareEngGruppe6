@@ -85,6 +85,7 @@ body {
 #mainText {
     letter-spacing: 1px;
     line-height: 25px;
+    padding: 20px;
 }
 
 .center-align {
