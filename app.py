@@ -43,9 +43,9 @@ def list_items():
     cursor = conn.execute("SELECT * FROM items")
     items = cursor.fetchall()
     conn.close()
-    return render_template("items.html")
+    return render_template("EXAMPLE")
 
-#@app.route("/add_item", methods=["POST"])
+@app.route("/add_item", methods=["POST"])
 def add_item():
     name = request.form["name"]
     if name:
@@ -60,4 +60,6 @@ print(user.get_user_info(user1))
 
 admin1 = admin(adminID=int(1), adminname="admin")
 print(admin.get_admin_info(admin1))
+
+
 
