@@ -11,9 +11,11 @@ class user:
     def get_user_info(self):
         return f"UserID: {self.userID}, Username: {self.username}."
 
+    def get_username(self):
+        return f"{self.username}"
+
     def has_shopping_cart(self, shoppingCart):
         return shoppingCart is not None
-
     def user_login(self):
 
         '''if password == True:#alt; password == entered_password
