@@ -3,36 +3,40 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Ubuntu&:wght@300;400;500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>ExpPlanner</title>
+    <title>Tourify</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <body>
     <div class="flex-container">
         <div id="sideLeft" class="center-align">
-            <h4>placeholder</h4>
+            <p></p>
         </div>
         <div id="middle">
             <div  id="titleWrapper">
-                <h1 id="title" class="center-align">
-                    Expedition Planner - User
-                </h1>
+                <h2 id="title" class="center-align">
+                    Tourify
+                </h2>
             </div>
-            <div id="buttonWrapper" class="center-align">
+
+            <div id="mainText"> <!--Eksempeltekst-->
+                <p></p>
+                <label>
+                    <input type="text" placeholder="Din drømmereise" id="search-bar">
+                    <button type="submit" id="search-button">Søk</button>
+                </label>
+            </div>
+        </div>
+        <div id="sideRight">
+            <div id="buttonWrapper">
+                <p>logget inn som bruker</p>
                 <a href="{{ url_for('index') }}">
                    <button class="loginButton">
                        Log Out
                    </button>
                 </a>
             </div>
-            <div id="mainText"> <!--Eksempeltekst-->
-                <p></p>
-            </div>
-        </div>
-        <div id="sideRight" class="center-align">
-            <h4>logget inn som </h4>
         </div>
     </div>
     <div class="center-align" id="footer">
