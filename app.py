@@ -4,10 +4,13 @@ from flask import Flask, render_template, redirect, url_for, request
 from backend.users.user import user
 from backend.users.admin import admin
 from backend.json import *
+from backend.database.db import db_startup
 
 app = Flask(__name__)
 
 DATABASE = 'chinook.db'
+
+db_startup()
 
 user1 = user(userID=int(1), username="user")
 print(user.get_user_info(user1))
