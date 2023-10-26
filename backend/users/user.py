@@ -12,7 +12,7 @@ class user:
         return f"UserID: {self.userID}, Username: {self.username}."
 
     def get_username(self):
-        return f"{self.username}"
+        return self.username
 
     def has_shopping_cart(self, shoppingCart):
         return shoppingCart is not None
