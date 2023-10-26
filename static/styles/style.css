@@ -16,6 +16,10 @@ body {
     flex-direction: column;
 }
 
+a {
+    display: inline-block;
+}
+
 .flex-container {
     display: flex;
     /*flex: 1;*/
@@ -28,11 +32,10 @@ body {
 }
 
 #title {
+    font-family: 'Lobster', 'Ubuntu', sans-serif;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-weight: lighter;
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 50px;
 }
 
 #titleWrapper {
@@ -65,6 +68,35 @@ body {
     transition: 0.1s;
 }
 
+#search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#search-button {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #b2beb5;
+    padding: 5px 15px;
+    margin: 5px;
+    transition-duration: 0.3s;
+}
+
+#search-button:hover {
+    transition: 0.3s;
+    background-color: #dbe1dd;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24);
+}
+
+#search-button:active {
+    background-color: #c0cac2;
+    transition: 0.1s;
+}
+
 #sideLeft {
 
 }
@@ -81,7 +113,10 @@ body {
 }
 
 #sideRight {
-
+    margin-top: 0.5%;
+    margin-left: 1%;
+    margin-right: auto;
+    width: 50%;
 }
 
 #mainText {
