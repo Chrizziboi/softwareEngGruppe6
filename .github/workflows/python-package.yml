@@ -37,5 +37,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest softwareEngGruppe6/tester/json_tester.py
-        pytest softwareEngGruppe6/tester/users_tester.py
+        pytest /tester/json_tester.py
+        pytest /tester/users_tester.py
