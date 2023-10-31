@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 DATABASE = 'chinook.db'
 
-db_startup()
+#db_startup()
 
 user1 = user(userID=int(1), username="user")
 print(user.get_user_info(user1))
