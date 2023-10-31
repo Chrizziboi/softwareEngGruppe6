@@ -1,9 +1,15 @@
 import pytest
-from backend.users.user import user
-from app import user1
-from app import admin1
-from backend.users.admin import admin
 
+class admin:
+    def __init__(self, adminID, adminname):
+        self.adminID = int(adminID)
+        self.adminname = str(adminname)
+
+class user:
+
+    def __init__(self, userID, username):
+        self.userID = int(userID)
+        self.username = str(username)
 
 def test_create_user():
     user1 = user(1,"user")

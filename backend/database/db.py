@@ -26,4 +26,3 @@ def db_startup():
 
     conn.commit()
     conn.close()
-
