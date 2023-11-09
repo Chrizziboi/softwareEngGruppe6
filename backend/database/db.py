@@ -11,18 +11,27 @@ def db_startup():
     abs_path_script = os.path.dirname('schema.sql')
     script_file_path = os.path.join(abs_path_script, 'schema.sql')
 
-    with open(script_file_path) as f:
-        conn.executescript(f.read())
-
     cur = conn.cursor()
+    cur.execute("SELECT * FROM peristorage")
+    table_exists = cur.fetchone()
 
-    cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
-                ('PERSISTENT1', 'STORAGE1')
-                )
+    if table_exists:
+        print("peristorage already exists")
+        conn.close()
+    else:
+        with open(script_file_path) as f:
+            conn.executescript(f.read())
 
-    cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
-                ('PERSISTENT2', 'STORAGE2')
-                )
 
-    conn.commit()
-    conn.close()
+        cur = conn.cursor()
+
+        cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
+                    ('PERSISTENT1', 'STORAGE1')
+                    )
+
+        cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
+                    ('PERSISTENT2', 'STORAGE2')
+                    )
+
+        conn.commit()
+        conn.close()

@@ -21,8 +21,17 @@ print(admin.get_admin_info(admin1))
 def get_db():
     db = getattr(Flask, '_database', None)
     if db is None:
-        db = Flask._database = sqlite3.connect(DATABASE)
+        db = Flask._database = sqlite3.connect(DATABASE, check_same_thread=False)
     return db
+
+
+@app.route('/user-page')
+def get_storage():
+    conn = get_db()
+    peristorage = conn.execute('SELECT * FROM peristorage').fetchall()
+    conn.close()
+    return render_template('user-page.html', user=user1, peristorage=peristorage)
+
 
 @app.route('/')
 def index():
@@ -31,6 +40,7 @@ def index():
 @app.route('/user-page')
 def userpage():
     user1 = user(userID=1, username="user")
+
     return render_template('user-page.html', user=user1)
 
 @app.route("/user-info")

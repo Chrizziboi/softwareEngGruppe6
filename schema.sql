@@ -6,5 +6,6 @@ CREATE TABLE peristorage (
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
     content TEXT NOT NULL
+
 );
 
