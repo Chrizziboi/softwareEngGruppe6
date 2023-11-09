@@ -15,23 +15,20 @@ def db_startup():
     cur.execute("SELECT * FROM peristorage")
     table_exists = cur.fetchone()
 
-    if table_exists:
-        print("peristorage already exists")
-        conn.close()
-    else:
-        with open(script_file_path) as f:
-            conn.executescript(f.read())
+    with open(script_file_path) as f:
+        conn.executescript(f.read())
 
+    cur = conn.cursor()
 
-        cur = conn.cursor()
+    cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
+                ('PERSISTENT1', 'STORAGE1')
+                )
 
-        cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
-                    ('PERSISTENT1', 'STORAGE1')
-                    )
+    cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
+                ('PERSISTENT2', 'STORAGE2')
+                )
 
-        cur.execute("INSERT INTO peristorage (title, content) VALUES (?, ?)",
-                    ('PERSISTENT2', 'STORAGE2')
-                    )
+    conn.commit()
+    conn.close()
 
-        conn.commit()
-        conn.close()
+#DROP TABLE IF EXISTS peristorage;
