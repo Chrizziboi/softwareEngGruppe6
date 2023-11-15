@@ -6,15 +6,21 @@ class user:
         self.userID = int(userID)
         self.username = str(username)
         #self.password = str(password)
+        self.shoppingCart = shoppingCart.shoppingCart
 
     def get_user_info(self):
         return f"UserID: {self.userID}, Username: {self.username}."
 
     def get_username(self):
         return self.username
+    def get_userID(self):
+        return self.userID
 
-    def has_shopping_cart(self, shoppingCart):
-        return shoppingCart is not None
+    def has_shopping_cart(self):
+        if len(self.shoppingCart.tour) > 0:
+            shoppingCart.shoppingCart.show_tour()
+        else:
+            return f"Bruker {self.username} har ingen handlekurv"
 
 '''
      def user_login(self, password):
