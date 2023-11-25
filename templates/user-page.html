@@ -30,12 +30,20 @@
         </div>
         <div id="sideRight">
             <div id="buttonWrapper">
-                <p>logget inn som bruker</p>
-                <a href="{{ url_for('index') }}">
-                   <button class="loginButton">
-                       Log Out
-                   </button>
-                </a>
+                <p>Logget inn som</p>
+                <div class="dropdown">
+                    <button class="dropbtn">Bruker</button>
+                    <div class="dropdown-content">
+                        <a href="">Rediger profil</a>
+                        <a href="">Mine turer</a>
+                        <a href="{{ url_for('index') }}">
+                            <button class="loginButton">
+                                Log Out
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
