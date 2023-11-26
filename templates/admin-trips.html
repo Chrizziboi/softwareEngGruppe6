@@ -24,22 +24,48 @@
             </div>
 
             <div id="mainText">
-                <p></p>
+                <h3>Opprettede turer</h3>
                 <label>
                     <input type="text" placeholder="Din drømmereise" id="search-bar">
                     <button type="submit" id="search-button">Søk</button>
                 </label>
+                <ul>
+                    <li class="trip-info">
+                        <img src="../static/styles/images/venice.png" alt="venezia">
+                        <div class="trip-text">
+                            <h3>Venezia</h3>
+                        <p>Nyt solfylte dager med vinsmaking.</p>
+                        </div>
+                        <span>
+                            <button class="trip-button">Rediger</button>
+                            <button class="trip-button">Avlys</button>
+                        </span>
+                    </li>
+
+                    <li class="trip-info">
+                        <img src="../static/styles/images/geneve.png" alt="geneve">
+                        <div class="trip-text">
+                            <h3>Genéve</h3>
+                            <p>Besøk klokkehovedstaden!</p>
+                        </div>
+                        <span>
+                            <button class="trip-button">Rediger</button>
+                            <button class="trip-button">Avlys</button>
+                        </span>
+                    </li>
+                </ul>
             </div>
         </div>
         <div id="sideRight">
             <div id="buttonWrapper">
                 <p>Logget inn som</p>
                 <div class="dropdown">
-                    <button class="dropbtn">Bruker</button>
+                    <button class="dropbtn">Admin</button>
                     <div class="dropdown-content">
-                        <a href="" style="color: grey">Hjemside</a>
-                        <a href="{{ url_for('useredit') }}">Rediger profil</a>
-                        <a href="{{ url_for('usertrips') }}">Mine turer</a>
+                        <a href="{{ url_for('adminpage') }}">Hjemside</a>
+                        <a href="{{ url_for('adminedit') }}">Rediger profil</a>
+                        <a href="" style="color: grey">Opprettede turer</a>
+                        <a href="">Brukerportal</a>
                         <a href="{{ url_for('index') }}">
                             <button class="loginButton">
                                 Log Out
@@ -47,7 +73,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

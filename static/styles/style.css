@@ -18,6 +18,8 @@ body {
 
 a {
     display: inline-block;
+    text-decoration: none;
+    color: black;
 }
 
 .flex-container {
@@ -128,6 +130,10 @@ a {
     text-decoration: none;
 }
 
+.dropdown-content a:hover {
+    color: grey;
+}
+
 .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
@@ -161,6 +167,50 @@ a {
     padding: 10px;
     line-height: 25px;
     text-align: center;
+}
+
+#mainText .trip-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #b2beb5;
+    }
+
+#mainText .trip-info img {
+    max-width: 100px;
+    margin-right: 10px;
+    }
+
+#mainText .trip-text {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 10px;
+    }
+
+#mainText .trip-button {
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin: 8px;
+    transition-duration: 0.3s;
+    font-size: 15px;
+    background-color: #dbe1dd;
+    }
+
+#mainText .trip-button:hover {
+    background-color: #cad2cd;
+    transition: 0.3s;
+}
+
+#mainText .trip-button:active {
+    background-color: #bec4c0;
+    transition: 0.1s;
 }
 
 .center-align {

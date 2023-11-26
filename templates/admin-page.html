@@ -6,9 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Ubuntu&:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../static/styles/images/favicon_Tourify.png">
     <meta charset="UTF-8">
-    <a href="{{ url_for('index')}}">
-        <title>Tourify</title>
-    </a>
+    <title>Tourify</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <body>
@@ -19,11 +17,13 @@
         <div id="middle">
             <div  id="titleWrapper">
                 <h2 id="title" class="center-align">
-                    Tourify
+                    <a href="{{ url_for('index')}}">
+                        Tourify
+                    </a>
                 </h2>
             </div>
 
-            <div id="mainText"> <!--Eksempeltekst-->
+            <div id="mainText">
                 <p></p>
                 <div>
                     <button class="loginButton">Opprett tur</button>
@@ -42,8 +42,9 @@
                 <div class="dropdown">
                     <button class="dropbtn">Admin</button>
                     <div class="dropdown-content">
-                        <a href="">Rediger profil</a>
-                        <a href="">Mine turer</a>
+                        <a href="" style="color: grey">Hjemside</a>
+                        <a href="{{ url_for('adminedit') }}">Rediger profil</a>
+                        <a href="{{ url_for('admintrips') }}">Opprettede turer</a>
                         <a href="">Brukerportal</a>
                         <a href="{{ url_for('index') }}">
                             <button class="loginButton">
@@ -58,7 +59,7 @@
     </div>
     <div class="center-align" id="footer">
         <footer>
-            <p>BLFP AS &copy; 2023</p>
+            <p>BLFMP AS &copy; 2023</p>
         </footer>
     </div>
 </body>

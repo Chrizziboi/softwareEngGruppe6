@@ -22,13 +22,11 @@
                     </a>
                 </h2>
             </div>
-
             <div id="mainText">
-                <p></p>
-                <label>
-                    <input type="text" placeholder="Din drømmereise" id="search-bar">
-                    <button type="submit" id="search-button">Søk</button>
-                </label>
+                <h3>Rediger profil</h3>
+                <h4>Navn: </h4><p>Bruker</p>
+                <h4>Telefonnummer: </h4><p>94 12 34 56</p>
+                <h4>E-post: </h4><p>eksempel@epost.no</p>
             </div>
         </div>
         <div id="sideRight">
@@ -37,8 +35,8 @@
                 <div class="dropdown">
                     <button class="dropbtn">Bruker</button>
                     <div class="dropdown-content">
-                        <a href="" style="color: grey">Hjemside</a>
-                        <a href="{{ url_for('useredit') }}">Rediger profil</a>
+                        <a href="{{ url_for('userpage') }}">Hjemside</a>
+                        <a href="" style="color: grey">Rediger profil</a>
                         <a href="{{ url_for('usertrips') }}">Mine turer</a>
                         <a href="{{ url_for('index') }}">
                             <button class="loginButton">
