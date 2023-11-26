@@ -1,6 +1,14 @@
 import os.path
 import json
-import pytest
+
+def write_json(filename, data):
+
+    try:
+        with open(filename, "w") as file:
+            json.dump(data, file, indent=4)
+        print(f"Data written to {filename}")
+    except Exception as e:
+        print(f"Error writing to {filename}: {str(e)}")
 
 def read_json(filename):
     try:
@@ -13,16 +21,6 @@ def read_json(filename):
     except json.JSONDecodeError:
         print(f"Invalid JSON in file {filename}")
         return None
-
-def write_json(filename, data):
-
-    try:
-        with open(filename, "w") as file:
-            json.dump(data, file, indent=4)
-        print(f"Data written to {filename}")
-    except Exception as e:
-        print(f"Error writing to {filename}: {str(e)}")
-
 
 test_data = {
     "userID": 1,
