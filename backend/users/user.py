@@ -1,5 +1,6 @@
 from backend.shopping_cart import shoppingCart
 
+
 class user:
 
     def __init__(self, userID, username): #parameter password for a system that would use password

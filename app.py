@@ -60,15 +60,30 @@ def adminpage():
     admin1 = admin(adminID=1, adminname="admin")
     return render_template('admin-page.html', admin=admin1)
 
-@app.route("/add_item", methods=["POST"])
-def add_item():
+@app.route("/add_tour", methods=["POST"])
+def add_tour():
     name = request.form["name"]
     if name:
         conn = get_db()
-        conn.execute("INSERT INTO items (name) VALUES (?)", (name,))
+        conn.execute("INSERT INTO tours (id, name, price) VALUES (?, ?, ?)")
         conn.commit()
         conn.close()
     return redirect(url_for("list_items"))
+@app.route("/search-results")
+def search():
+    query = request.args.get('query')
+    if query:
+        try:
+            with get_db() as conn:
+                search_results = conn.execute("SELECT name FROM tours WHERE name LIKE (?)",
+                                              ('%' + query + '%',)).fetchall()
+                return render_template("search-results.html", results=search_results)
+            close_db()
+        except Exception as e:
+            print(f"Feil ved henting av tabell {e}")
+            return "En feil har skjedd under søk"
+    else:
+        return render_template('user-page.html', user=user1)
 
 def login():
     pass

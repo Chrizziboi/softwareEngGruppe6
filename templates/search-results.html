@@ -1,0 +1,8 @@
+<h2> Søke Resultater {{ query }}</h2>>
+<ul>
+    {% for result in results %}
+        <li>{{ result.name }} - {{ result.price }}</li>
+    {% else %}
+        <p>Ingen resultater funnet. </p>
+    {% endfor %}
+</ul>

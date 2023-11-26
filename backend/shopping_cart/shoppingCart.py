@@ -13,7 +13,7 @@ class shoppingCart:
         conn = get_db()
         try:
             conn.execute(
-                "INSERT INTO peristorage (userID, tour_name, quantity, price) VALUES (?, ?, ?, ?)",
+                "INSERT INTO tours (userID, tour_name, quantity, price) VALUES (?, ?, ?, ?)",
                 (self.user.get_userID(), tour_name, quantity, price)
             )
             conn.commit()
@@ -28,7 +28,7 @@ class shoppingCart:
         conn = get_db()
         try:
             conn.execute(
-                "DELETE FROM peristorage WHERE userID = ? AND tour_name = ?",
+                "DELETE FROM tours WHERE userID = (?) AND tour_name = (?)",
                 (self.user.get_userID(), tour_name)
             )
             conn.commit()
