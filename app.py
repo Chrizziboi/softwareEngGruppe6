@@ -9,6 +9,8 @@ from backend.database.db import *
 
 app = Flask(__name__)
 
+DATABASE = 'chinook.db'
+
 user1 = user(userID=int(1), username="user")
 
 admin1 = admin(adminID=int(1), adminname="admin")

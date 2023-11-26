@@ -22,20 +22,34 @@
 
             <div id="mainText"> <!--Eksempeltekst-->
                 <p></p>
+                <div>
+                    <button class="loginButton">Opprett tur</button>
+                    <button class="loginButton">Rediger tur</button>
+                </div>
                 <label>
                     <input type="text" placeholder="Din drømmereise" id="search-bar">
                     <button type="submit" id="search-button">Søk</button>
                 </label>
+
             </div>
         </div>
         <div id="sideRight">
             <div id="buttonWrapper">
-                <p>logget inn som bruker</p>
-                <a href="{{ url_for('index') }}">
-                   <button class="loginButton">
-                       Log Out
-                   </button>
-                </a>
+                <p>Logget inn som</p>
+                <div class="dropdown">
+                    <button class="dropbtn">Admin</button>
+                    <div class="dropdown-content">
+                        <a href="">Rediger profil</a>
+                        <a href="">Mine turer</a>
+                        <a href="">Brukerportal</a>
+                        <a href="{{ url_for('index') }}">
+                            <button class="loginButton">
+                                Log Out
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
