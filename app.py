@@ -12,11 +12,8 @@ app = Flask(__name__)
 DATABASE = 'chinook.db'
 
 user1 = user(userID=int(1), username="user")
-print(user.get_user_info(user1))
-print(user.get_userID(user1))
 
 admin1 = admin(adminID=int(1), adminname="admin")
-print(admin.get_admin_info(admin1))
 
 shopcart = shoppingCart(user1)
 

@@ -1,0 +1,40 @@
+@startuml
+
+actor bruker as bruker #Blue
+
+activate bruker #Blue
+boundary login as login #Yellow
+
+bruker-->login : oppkobling til login
+activate login #Yellow
+
+database Tourify as Tourify #Green
+activate Tourify #Green
+
+login-->Tourify : tilkobling til hovedsiden
+deactivate login #Yellow
+Tourify-->brukerprofil : kobling mot brukerprofil
+activate brukerprofil #Green
+
+brukerprofil-->Tourify : valg av ønsket tur
+Tourify-->brukerprofil : klargjør betaling
+
+boundary banken_login as banken_login #Yellow
+
+brukerprofil-->banken_login : oppkobling til banken
+activate banken_login #yellow
+banken_login-->Tourify : godkjent kjøp
+deactivate banken_login #yellow
+
+Tourify-->brukerprofil : sender bruker en bekreftelse på email
+brukerprofil-->Tourify : logg ut fra brukerprofil
+deactivate brukerprofil #Teal
+Tourify-->login : redirect til login
+activate login #yellow
+login-->bruker :  lukker webappen
+deactivate login #yellow
+
+@enduml
+
+
+
