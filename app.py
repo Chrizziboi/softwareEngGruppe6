@@ -127,6 +127,11 @@ def search():
     else:
         return render_template('user-page.html', user=user1)
 
+@app.route('/shoppingcart')
+def shoppingcart():
+    user1 = user(userID=1, username="user")
+    return render_template('shoppingcart.html', user=user1)
+
 def login():
     pass
 
