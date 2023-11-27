@@ -1,11 +1,9 @@
 import pytest
 
-
 class admin:
     def __init__(self, adminID, adminname):
         self.adminID = int(adminID)
         self.adminname = str(adminname)
-
 
 class user:
 

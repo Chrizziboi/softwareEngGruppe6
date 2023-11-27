@@ -20,17 +20,17 @@
                 </h2>
             </div>
 
-            <div id="mainText"> <!--Eksempeltekst-->
+            <div id="mainText">  <!--Eksempeltekst-->
                 <form action="/search-results" method="get">
                     <label>
                         <input type="text" name="query" placeholder="Din drømmereise" id="search-bar">
                         <button type="submit" id="search-button">Søk</button>
                     </label>
                 </form>
-                        <h2> Søke Resultater {{ query }}</h2>>
+                        <h2> Søke Resultater {{ query }}</h2>
                 <ul>
                         {% for result in results %}
-                            <li>{{ result.name }} - {{ result.price }}</li>
+                            <li>{{ result[0] }} - {{ result[1] }}</li>
                         {% else %}
                             <p>Ingen resultater funnet. </p>
                         {% endfor %}
