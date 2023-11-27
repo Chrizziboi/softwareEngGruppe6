@@ -8,15 +8,6 @@
     <meta charset="UTF-8">
     <title>Tourify</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
-    <script>
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
-
-        function closeForm() {
-          document.getElementById("myForm").style.display = "none";
-        }
-        </script>
 </head>
 <body>
     <div class="flex-container">
@@ -32,33 +23,11 @@
                     </a>
                 </h2>
             </div>
-
             <div id="mainText">
-                <p></p>
-                <div>
-                    <button class="loginButton" onclick="openForm()">Opprett tur</button>
-
-                    <div class="form-popup" id="myForm">
-                      <form action="#" class="form-container">
-                        <h1>Legg til tur</h1>
-
-                        <label><b>Navn:</b></label>
-                        <input type="text" placeholder="Turnavn" name="navn" required>
-
-                        <label><b>Pris</b></label>
-                        <input type="number" placeholder="Pris per. person" name="pris" required>
-
-                        <button type="submit" class="btn">Legg til tur</button>
-                        <button type="button" class="btn avbryt" onclick="closeForm()">Lukk</button>
-                      </form>
-                    </div>
-                    <button class="loginButton">Rediger tur</button>
-                </div>
-                <label>
-                    <input type="text" placeholder="Din drømmereise" id="search-bar">
-                    <button type="submit" id="search-button">Søk</button>
-                </label>
-
+                <h3>Rediger profil</h3>
+                <h4>Navn: </h4><p>Admin</p>
+                <h4>Telefonnummer: </h4><p>98 98 76 54</p>
+                <h4>E-post: </h4><p>epost@eksempel.no</p>
             </div>
         </div>
         <div id="sideRight">
@@ -67,8 +36,8 @@
                 <div class="dropdown">
                     <button class="dropbtn">Admin</button>
                     <div class="dropdown-content">
-                        <a href="" style="color: grey">Hjemside</a>
-                        <a href="{{ url_for('adminedit') }}">Rediger profil</a>
+                        <a href="{{ url_for('adminpage') }}">Hjemside</a>
+                        <a href="" style="color: grey">Rediger profil</a>
                         <a href="{{ url_for('admintrips') }}">Opprettede turer</a>
                         <a href="">Brukerportal</a>
                         <a href="{{ url_for('index') }}">

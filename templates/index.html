@@ -4,6 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Ubuntu&:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../static/styles/images/favicon_Tourify.png">
     <meta charset="UTF-8">
     <title>Tourify</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
@@ -16,7 +17,10 @@
         <div id="middle">
             <div  id="titleWrapper">
                 <h1 id="title" class="center-align">
-                    Tourify
+                    <a href="{{ url_for('index')}}">
+                        <img src="../static/styles/images/favicon_Tourify-2.png" style="max-width: 300px; margin-bottom: -20px;">
+                        <!---Tourify--->
+                    </a>
                 </h1>
             </div>
             <div id="buttonWrapper" class="center-align">
@@ -56,7 +60,7 @@
     </div>
     <div class="center-align" id="footer">
         <footer>
-            <p>BLFP AS &copy; 2023</p>
+            <p>BLFMP AS &copy; 2023</p>
         </footer>
     </div>
 </body>

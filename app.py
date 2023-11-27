@@ -46,6 +46,18 @@ def userpage():
     user1 = user(userID=1, username="user")
     return render_template('user-page.html', user=user1)
 
+@app.route('/user-trips')
+def usertrips():
+    user1 = user(userID=1, username="user")
+
+    return render_template('user-trips.html', user=user1)
+
+@app.route('/user-edit')
+def useredit():
+    user1 = user(userID=1, username="user")
+
+    return render_template('user-edit.html', user=user1)
+
 @app.route("/user-info")
 def user_info():
     return render_template('user-info.html', user=user1)
@@ -59,10 +71,26 @@ def adminpage():
     admin1 = admin(adminID=1, adminname="admin")
     return render_template('admin-page.html', admin=admin1)
 
+
+@app.route('/admin-edit')
+def adminedit():
+    admin1 = admin(adminID=1, adminname="admin")
+    return render_template('admin-edit.html', admin=admin1)
+
+@app.route('/admin-trips')
+def admintrips():
+    admin1 = admin(adminID=1, adminname="admin")
+    return render_template('admin-trips.html', admin=admin1)
+
+@app.route("/add_item", methods=["POST"])
+def add_item():
+    name = request.form["name"]
+
 @app.route("/add_tour", methods=["POST"])
 def add_tour():
     name = request.form["tour_name"]
     price = request.form["tour_price"]
+
     if name:
         shoppingCart.add_tour(user1_shoppingCart, name, price)
     return redirect(url_for("list_items"))

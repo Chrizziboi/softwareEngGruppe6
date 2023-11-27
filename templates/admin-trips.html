@@ -8,15 +8,6 @@
     <meta charset="UTF-8">
     <title>Tourify</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
-    <script>
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
-
-        function closeForm() {
-          document.getElementById("myForm").style.display = "none";
-        }
-        </script>
 </head>
 <body>
     <div class="flex-container">
@@ -34,31 +25,36 @@
             </div>
 
             <div id="mainText">
-                <p></p>
-                <div>
-                    <button class="loginButton" onclick="openForm()">Opprett tur</button>
-
-                    <div class="form-popup" id="myForm">
-                      <form action="#" class="form-container">
-                        <h1>Legg til tur</h1>
-
-                        <label><b>Navn:</b></label>
-                        <input type="text" placeholder="Turnavn" name="navn" required>
-
-                        <label><b>Pris</b></label>
-                        <input type="number" placeholder="Pris per. person" name="pris" required>
-
-                        <button type="submit" class="btn">Legg til tur</button>
-                        <button type="button" class="btn avbryt" onclick="closeForm()">Lukk</button>
-                      </form>
-                    </div>
-                    <button class="loginButton">Rediger tur</button>
-                </div>
+                <h3>Opprettede turer</h3>
                 <label>
                     <input type="text" placeholder="Din drømmereise" id="search-bar">
                     <button type="submit" id="search-button">Søk</button>
                 </label>
+                <ul>
+                    <li class="trip-info">
+                        <img src="../static/styles/images/venice.png" alt="venezia">
+                        <div class="trip-text">
+                            <h3>Venezia</h3>
+                        <p>Nyt solfylte dager med vinsmaking.</p>
+                        </div>
+                        <span>
+                            <button class="trip-button">Rediger</button>
+                            <button class="trip-button">Avlys</button>
+                        </span>
+                    </li>
 
+                    <li class="trip-info">
+                        <img src="../static/styles/images/geneve.png" alt="geneve">
+                        <div class="trip-text">
+                            <h3>Genéve</h3>
+                            <p>Besøk klokkehovedstaden!</p>
+                        </div>
+                        <span>
+                            <button class="trip-button">Rediger</button>
+                            <button class="trip-button">Avlys</button>
+                        </span>
+                    </li>
+                </ul>
             </div>
         </div>
         <div id="sideRight">
@@ -67,9 +63,9 @@
                 <div class="dropdown">
                     <button class="dropbtn">Admin</button>
                     <div class="dropdown-content">
-                        <a href="" style="color: grey">Hjemside</a>
+                        <a href="{{ url_for('adminpage') }}">Hjemside</a>
                         <a href="{{ url_for('adminedit') }}">Rediger profil</a>
-                        <a href="{{ url_for('admintrips') }}">Opprettede turer</a>
+                        <a href="" style="color: grey">Opprettede turer</a>
                         <a href="">Brukerportal</a>
                         <a href="{{ url_for('index') }}">
                             <button class="loginButton">
@@ -78,7 +74,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

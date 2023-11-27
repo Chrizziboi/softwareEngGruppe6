@@ -18,6 +18,8 @@ body {
 
 a {
     display: inline-block;
+    text-decoration: none;
+    color: black;
 }
 
 .flex-container {
@@ -128,6 +130,10 @@ a {
     text-decoration: none;
 }
 
+.dropdown-content a:hover {
+    color: grey;
+}
+
 .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
@@ -163,6 +169,50 @@ a {
     text-align: center;
 }
 
+#mainText .trip-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #b2beb5;
+    }
+
+#mainText .trip-info img {
+    max-width: 100px;
+    margin-right: 10px;
+    }
+
+#mainText .trip-text {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 10px;
+    }
+
+#mainText .trip-button {
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin: 8px;
+    transition-duration: 0.3s;
+    font-size: 15px;
+    background-color: #dbe1dd;
+    }
+
+#mainText .trip-button:hover {
+    background-color: #cad2cd;
+    transition: 0.3s;
+}
+
+#mainText .trip-button:active {
+    background-color: #bec4c0;
+    transition: 0.1s;
+}
+
 .center-align {
     margin: auto;
     width: 50%;
@@ -183,4 +233,58 @@ a {
 
 footer {
     padding: 5px;
+}
+
+{box-sizing: border-box;}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=number] {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .avbryt {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
 }
