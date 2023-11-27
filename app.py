@@ -63,7 +63,7 @@ def add_tour():
     name = request.form["name"]
     if name:
         conn = get_db()
-        #conn.execute("INSERT INTO tours (id, name, price) VALUES (?, ?, ?)")
+        conn.execute("INSERT INTO tours (id, name, price) VALUES (?, ?, ?)")
         conn.commit()
         conn.close()
     return redirect(url_for("list_items"))
@@ -81,7 +81,7 @@ def search():
                     tour_price = row[1]
                 sql_translate = f"{tour_name} - Pris: {tour_price}"
                 print(sql_translate)
-                return render_template("search-results.html", query=query, results=sql_translate)
+                return render_template("search-results.html", results=search_results, query=query)
         except Exception as e:
             print(f"Feil ved henting av tabell {e}")
             return redirect("/user-page")
