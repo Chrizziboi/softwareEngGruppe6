@@ -49,6 +49,11 @@ a {
     margin-top: 10px;
 }
 
+#buttonWrapper button {
+    margin-left: -2px;
+    display: block;
+}
+
 .loginButton {
     font-family: 'Ubuntu', sans-serif;
     border: none;
@@ -134,9 +139,19 @@ a {
     color: grey;
 }
 
+.dropdown-content button {
+    margin-left: 15px;
+}
+
 .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
+}
+
+#shoppingCartimg {
+    margin-top: 15px;
+    margin-left: 0px;
+    width: 30px;
 }
 
 #sideLeft {
@@ -235,9 +250,12 @@ footer {
     padding: 5px;
 }
 
+
+/* ----------- */
+
+/* Koden under er lånt fra W3Schools https://www.w3schools.com/howto/howto_js_popup_form.asp */
 {box-sizing: border-box;}
 
-/* The popup form - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
@@ -245,14 +263,12 @@ footer {
   z-index: 9;
 }
 
-/* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 10px;
   background-color: white;
 }
 
-/* Full-width input fields */
 .form-container input[type=text], .form-container input[type=number] {
   width: 80%;
   padding: 15px;
@@ -261,13 +277,11 @@ footer {
   background: #f1f1f1;
 }
 
-/* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=number]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-/* Set a style for the submit/login button */
 .form-container .btn {
   background-color: #04AA6D;
   color: white;
@@ -279,12 +293,10 @@ footer {
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
 .form-container .avbryt {
-  background-color: red;
+  background-color: #ff0000;
 }
 
-/* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
