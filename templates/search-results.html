@@ -31,7 +31,7 @@
                         <p style="font-size: 28px"> Søkeresultater for "{{ query }}"</p>
                 <ul>
                         {% for result in results %}
-                            <li class="trip-info">{{ result[0] }} - {{ result[1] }}</li>
+                            <li class="trip-info">{{ result[1] }} - {{ result[2] }}</li>
                         {% else %}
                             <p>Ingen resultater funnet.</p>
                         {% endfor %}
@@ -59,7 +59,7 @@
     </div>
     <div class="center-align" id="footer">
         <footer>
-            <p>BLFP AS &copy; 2023</p>
+            <p>BLFMP AS &copy; 2023</p>
         </footer>
     </div>
 </body>
