@@ -16,23 +16,24 @@
         <div id="middle">
             <div  id="titleWrapper">
                 <h2 id="title" class="center-align">
-                    Tourify
+                    <img src="../static/styles/images/favicon_Tourify-2.png" style="max-width: 300px; margin-bottom: -20px;">
+                        <!---Tourify--->
                 </h2>
             </div>
 
-            <div id="mainText">  <!--Eksempeltekst-->
+            <div id="mainText">
                 <form action="/search-results" method="get">
                     <label>
                         <input type="text" name="query" placeholder="Din drømmereise" id="search-bar">
                         <button type="submit" id="search-button">Søk</button>
                     </label>
                 </form>
-                        <h2> Søke Resultater {{ query }}</h2>
+                        <p style="font-size: 28px"> Søkeresultater for "{{ query }}"</p>
                 <ul>
                         {% for result in results %}
-                            <li>{{ result[0] }} - {{ result[1] }}</li>
+                            <li class="trip-info">{{ result[0] }} - {{ result[1] }}</li>
                         {% else %}
-                            <p>Ingen resultater funnet. </p>
+                            <p>Ingen resultater funnet.</p>
                         {% endfor %}
                 </ul>
             </div>
