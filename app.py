@@ -15,7 +15,8 @@ user1 = user(userID=int(1), username="user")
 
 admin1 = admin(adminID=int(1), adminname="admin")
 
-shopcart = shoppingCart(user1)
+user1_shoppingCart = shoppingCart(user1)
+admin1_shoppingCart = shoppingCart(admin1)
 
 db_startup()
 
@@ -60,12 +61,10 @@ def adminpage():
 
 @app.route("/add_tour", methods=["POST"])
 def add_tour():
-    name = request.form["name"]
+    name = request.form["tour_name"]
+    price = request.form["tour_price"]
     if name:
-        conn = get_db()
-        conn.execute("INSERT INTO tours (id, name, price) VALUES (?, ?, ?)")
-        conn.commit()
-        conn.close()
+        shoppingCart.add_tour(user1_shoppingCart, name, price)
     return redirect(url_for("list_items"))
 
 @app.route("/search-results")

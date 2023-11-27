@@ -13,8 +13,8 @@ class shoppingCart:
         conn = get_db()
         try:
             conn.execute(
-                "INSERT INTO tours (userID, tour_name, quantity, price) VALUES (?, ?, ?, ?)",
-                (self.user.get_userID(), tour_name, quantity, price)
+                "INSERT INTO tours (tour_name, price) VALUES (?, ?)",
+                (tour_name, price)
             )
             conn.commit()
         finally:
