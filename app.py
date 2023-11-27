@@ -16,7 +16,6 @@ user1 = user(userID=int(1), username="user")
 admin1 = admin(adminID=int(1), adminname="admin")
 
 user1_shoppingCart = shoppingCart(user1)
-admin1_shoppingCart = shoppingCart(admin1)
 
 db_startup()
 
@@ -26,6 +25,7 @@ def get_storage():
         with get_db() as conn:
             peristorage = conn.execute('SELECT * FROM peristorage').fetchall()
             return render_template('user-page.html', user=user1, peristorage=peristorage)
+
     except Exception as e:
         print(f"Det har forekommet en feil: {e}")
         return "Det forekom en feil ved henting av brukerdata"
@@ -82,18 +82,30 @@ def admintrips():
     admin1 = admin(adminID=1, adminname="admin")
     return render_template('admin-trips.html', admin=admin1)
 
-@app.route("/add_item", methods=["POST"])
+'''@app.route("/add_item", methods=["POST"])
 def add_item():
-    name = request.form["name"]
+    name = request.form["name"]'''
 
 @app.route("/add_tour", methods=["POST"])
 def add_tour():
-    name = request.form["tour_name"]
-    price = request.form["tour_price"]
+    tour_name = request.form["navn"]
+    tour_price = request.form["pris"]
+    try:
+        with get_db() as conn:
 
-    if name:
-        shoppingCart.add_tour(user1_shoppingCart, name, price)
-    return redirect(url_for("list_items"))
+            conn.execute(
+                "INSERT INTO tours (name, price) VALUES (?, ?)",
+                (tour_name, tour_price)
+            )
+            conn.commit()
+    finally:
+        conn.close()
+        return redirect("/admin-page")
+
+
+'''    if name:
+        shoppingCart.add_tour(user1_shoppingCart, name, price)'''
+
 
 @app.route("/search-results")
 def search():
