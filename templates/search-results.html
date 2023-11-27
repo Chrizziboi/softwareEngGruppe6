@@ -4,7 +4,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Ubuntu&:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../static/styles/images/favicon_Tourify.png">
     <meta charset="UTF-8">
     <title>Tourify</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
@@ -17,29 +16,25 @@
         <div id="middle">
             <div  id="titleWrapper">
                 <h2 id="title" class="center-align">
-                    <a href="{{ url_for('index')}}">
-                        <img src="../static/styles/images/favicon_Tourify-2.png" style="max-width: 300px; margin-bottom: -20px;">
-                        <!---Tourify--->
-                    </a>
+                    Tourify
                 </h2>
             </div>
 
-
-            <div id="mainText">
-                <p></p>
-                <label>
-                    <input type="text" placeholder="Din drømmereise" id="search-bar">
-                    <button type="submit" id="search-button">Søk</button>
-                </label>
-
-            <div id="mainText"> <!--Eksempeltekst-->
+            <div id="mainText">  <!--Eksempeltekst-->
                 <form action="/search-results" method="get">
                     <label>
                         <input type="text" name="query" placeholder="Din drømmereise" id="search-bar">
                         <button type="submit" id="search-button">Søk</button>
                     </label>
                 </form>
-
+                        <h2> Søke Resultater {{ query }}</h2>
+                <ul>
+                        {% for result in results %}
+                            <li>{{ result[0] }} - {{ result[1] }}</li>
+                        {% else %}
+                            <p>Ingen resultater funnet. </p>
+                        {% endfor %}
+                </ul>
             </div>
         </div>
         <div id="sideRight">
@@ -48,9 +43,8 @@
                 <div class="dropdown">
                     <button class="dropbtn">Bruker</button>
                     <div class="dropdown-content">
-                        <a href="" style="color: grey">Hjemside</a>
-                        <a href="{{ url_for('useredit') }}">Rediger profil</a>
-                        <a href="{{ url_for('usertrips') }}">Mine turer</a>
+                        <a href="">Rediger profil</a>
+                        <a href="">Mine turer</a>
                         <a href="{{ url_for('index') }}">
                             <button class="loginButton">
                                 Logg ut
@@ -64,7 +58,7 @@
     </div>
     <div class="center-align" id="footer">
         <footer>
-            <p>BLFMP AS &copy; 2023</p>
+            <p>BLFP AS &copy; 2023</p>
         </footer>
     </div>
 </body>

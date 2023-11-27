@@ -12,13 +12,11 @@ app = Flask(__name__)
 DATABASE = 'chinook.db'
 
 user1 = user(userID=int(1), username="user")
-print(user.get_user_info(user1))
-print(user.get_userID(user1))
 
 admin1 = admin(adminID=int(1), adminname="admin")
-print(admin.get_admin_info(admin1))
 
-shopcart = shoppingCart(user1)
+user1_shoppingCart = shoppingCart(user1)
+admin1_shoppingCart = shoppingCart(admin1)
 
 db_startup()
 
@@ -46,7 +44,6 @@ def index():
 @app.route('/user-page')
 def userpage():
     user1 = user(userID=1, username="user")
-
     return render_template('user-page.html', user=user1)
 
 @app.route('/user-trips')
@@ -63,7 +60,6 @@ def useredit():
 
 @app.route("/user-info")
 def user_info():
-
     return render_template('user-info.html', user=user1)
 
 def admin_info():
@@ -74,6 +70,7 @@ def admin_info():
 def adminpage():
     admin1 = admin(adminID=1, adminname="admin")
     return render_template('admin-page.html', admin=admin1)
+
 
 @app.route('/admin-edit')
 def adminedit():
@@ -88,12 +85,35 @@ def admintrips():
 @app.route("/add_item", methods=["POST"])
 def add_item():
     name = request.form["name"]
+
+@app.route("/add_tour", methods=["POST"])
+def add_tour():
+    name = request.form["tour_name"]
+    price = request.form["tour_price"]
+
     if name:
-        conn = get_db()
-        conn.execute("INSERT INTO items (name) VALUES (?)", (name,))
-        conn.commit()
-        conn.close()
+        shoppingCart.add_tour(user1_shoppingCart, name, price)
     return redirect(url_for("list_items"))
+
+@app.route("/search-results")
+def search():
+    query = request.args.get('query')
+    if query:
+        try:
+            with get_db() as conn:
+                search_results = conn.execute("SELECT name, price FROM tours WHERE name LIKE (?)",
+                                              ('%' + query + '%',)).fetchall()
+                for row in search_results:
+                    tour_name = row[0]
+                    tour_price = row[1]
+                sql_translate = f"{tour_name} - Pris: {tour_price}"
+                print(sql_translate)
+                return render_template("search-results.html", results=search_results, query=query)
+        except Exception as e:
+            print(f"Feil ved henting av tabell {e}")
+            return redirect("/user-page")
+    else:
+        return render_template('user-page.html', user=user1)
 
 def login():
     pass
