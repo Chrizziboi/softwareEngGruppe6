@@ -38,5 +38,6 @@ jobs:
     - name: list files in directory and test with pytest
       run: |
         ls
-        pytest tester/json_tester.py
-        pytest tester/users_tester.py
+        pytest tester/test_db.py
+        pytest tester/test_json.py
+        pytest tester/test_users.py
