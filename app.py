@@ -106,26 +106,26 @@ def add_tour():
 '''    if name:
         shoppingCart.add_tour(user1_shoppingCart, name, price)'''
 
-@app.route("/add_tour", methods=["POST"])
+@app.route("/delete_tour", methods=["POST"])
 def delete_tour():
     tour_id = request.form["id"]
     try:
         with get_db() as conn:
-
-            conn.execute("DELETE FROM tours (id) VALUES (?)",
-                (tour_id)
+            conn.execute("DELETE FROM tours WHERE id = (?)",
+                (tour_id,)
             )
             conn.commit()
     finally:
-        conn.close()
-        return redirect("/admin-page")
+        with get_db() as conn:
+            search_results = conn.execute("SELECT * FROM tours").fetchall()
+            return render_template("search-results.html", results=search_results)
 
 
 '''    if name:
         shoppingCart.add_tour(user1_shoppingCart, name, price)'''
 
-
-@app.route("/search-results")
+'''
+@app.route("/search-results", methods=['GET'])
 def search():
     query = request.args.get('query')
     if query:
@@ -134,16 +134,73 @@ def search():
                 search_results = conn.execute("SELECT name, price FROM tours WHERE name LIKE (?)",
                                               ('%' + query + '%',)).fetchall()
                 for row in search_results:
-                    tour_name = row[0]
-                    tour_price = row[1]
-                sql_translate = f"{tour_name} - Pris: {tour_price}"
+                    #tour_id = row[0]
+                    tour_name = row[1]
+                    tour_price = row[2]
+                sql_translate = f" Navn: {tour_name} - Pris: {tour_price}"
                 print(sql_translate)
-                return render_template("search-results.html", results=search_results, query=query)
+            return render_template("search-results.html", results=search_results, query=query)
         except Exception as e:
             print(f"Feil ved henting av tabell {e}")
             return redirect("/user-page")
     else:
-        return render_template('user-page.html', user=user1)
+        with get_db() as conn:
+            search_results = conn.execute("SELECT * FROM tours").fetchall()
+            return render_template("search-results.html",results=search_results)
+'''
+@app.route("/search-results")
+def search():
+    query = request.args.get('query')
+    if query:
+        try:
+            with get_db() as conn:
+
+                search_results = conn.execute("SELECT id, name, price FROM tours WHERE name LIKE ?",
+                                              ('%' + query + '%',)).fetchall()
+
+                if search_results:
+                    for row in search_results:
+                        tour_id, tour_name, tour_price = row
+                        sql_translate = f"ID: {tour_id} - Navn: {tour_name} - Pris: {tour_price}"
+                        print(sql_translate)
+                else:
+                    print("Ingen resultater funnet")
+
+                return render_template("search-results.html", results=search_results, query=query)
+        except Exception as e:
+            print(f"Feil ved henting av tabell: {e}")
+
+            return redirect("/user-page")
+    else:
+        with get_db() as conn:
+            search_results = conn.execute("SELECT * FROM tours").fetchall()
+            return render_template("search-results.html",results=search_results)
+
+
+#render_template('user-page.html', user=user1)
+
+@app.route("/admin-search-results")
+def admin_search():
+    query = request.args.get('query')
+    if query:
+        try:
+            with get_db() as conn:
+                search_results = conn.execute("SELECT id, name, price FROM tours WHERE name LIKE (?)",
+                                              ('%' + query + '%',)).fetchall()
+                for row in search_results:
+                    tour_id = row[0]
+                    tour_name = row[1]
+                    tour_price = row[2]
+                sql_translate = f"ID: {tour_id} - Navn: {tour_name} - Pris: {tour_price}"
+                print(sql_translate)
+                return render_template("admin-search-results.html", results=search_results, query=query)
+        except Exception as e:
+                print(f"Feil ved henting av tabell {e}")
+                return redirect("/admin-page")
+    else:
+        with get_db() as conn:
+            search_results = conn.execute("SELECT * FROM tours").fetchall()
+            return render_template("admin-search-results.html", results=search_results)
 
 @app.route('/shoppingcart')
 def shoppingcart():
