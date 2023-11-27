@@ -106,6 +106,24 @@ def add_tour():
 '''    if name:
         shoppingCart.add_tour(user1_shoppingCart, name, price)'''
 
+@app.route("/add_tour", methods=["POST"])
+def delete_tour():
+    tour_id = request.form["id"]
+    try:
+        with get_db() as conn:
+
+            conn.execute("DELETE FROM tours (id) VALUES (?)",
+                (tour_id)
+            )
+            conn.commit()
+    finally:
+        conn.close()
+        return redirect("/admin-page")
+
+
+'''    if name:
+        shoppingCart.add_tour(user1_shoppingCart, name, price)'''
+
 
 @app.route("/search-results")
 def search():
