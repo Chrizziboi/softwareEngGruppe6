@@ -23,28 +23,18 @@
                     </a>
                 </h2>
             </div>
-
-
             <div id="mainText">
-                <p></p>
-                <label>
-                    <input type="text" placeholder="Din drømmereise" id="search-bar">
-                    <button type="submit" id="search-button">Søk</button>
-                </label>
-
-            <div id="mainText"> <!--Eksempeltekst-->
                 <form action="/search-results" method="get">
                     <label>
                         <input type="text" name="query" placeholder="Din drømmereise" id="search-bar">
                         <button type="submit" id="search-button">Søk</button>
                     </label>
                 </form>
-
             </div>
         </div>
         <div id="sideRight">
             <div id="buttonWrapper">
-                <p>Logget inn som</p>
+                <p>Logget inn som <a href="{{ url_for('shoppingcart') }}"><img src="../static/styles/images/shoppingCart.png" id="shoppingCartimg"></a></p>
                 <div class="dropdown">
                     <button class="dropbtn">Bruker</button>
                     <div class="dropdown-content">
@@ -58,7 +48,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
